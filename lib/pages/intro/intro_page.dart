@@ -8,7 +8,6 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
