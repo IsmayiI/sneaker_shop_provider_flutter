@@ -14,6 +14,13 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        listTileTheme: ListTileThemeData(
+            iconColor: Colors.grey.shade900,
+            textColor: Colors.grey.shade900,
+            titleTextStyle: TextStyle(fontWeight: FontWeight.bold)),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.grey.shade300,
+        ),
         scaffoldBackgroundColor: Colors.grey.shade300,
       ),
       routes: {

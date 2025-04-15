@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sneaker_shop_provider_flutter/components/components.dart';
 import 'package:sneaker_shop_provider_flutter/pages/pages.dart';
-
-import 'widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,6 +23,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
+      drawer: MyDrawer(),
       bottomNavigationBar: MyNavbar(onTabChange: onTabChange),
       body: pages[selectedIndex],
     );

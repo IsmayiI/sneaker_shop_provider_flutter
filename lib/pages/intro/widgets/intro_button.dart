@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 class IntroButton extends StatelessWidget {
   const IntroButton({super.key});
 
+  void onPressed(BuildContext context) {
+    Navigator.pushNamed(context, '/home');
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,7 +19,7 @@ class IntroButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        onPressed: () {},
+        onPressed: () => onPressed(context),
         child: Text(
           'Shop Now',
           style: TextStyle(
