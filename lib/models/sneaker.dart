@@ -4,7 +4,7 @@ class Sneaker {
   final String image;
   final String type;
 
-  Sneaker({
+  const Sneaker({
     required this.name,
     required this.price,
     required this.image,

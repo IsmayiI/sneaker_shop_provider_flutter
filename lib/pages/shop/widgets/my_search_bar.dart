@@ -6,6 +6,7 @@ class MySearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SearchBar(
+      enabled: false,
       trailing: [
         IconButton(
           onPressed: () {},

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:sneaker_shop_provider_flutter/models/models.dart';
+import 'package:sneaker_shop_provider_flutter/provider/provider.dart';
 
 class SneakerCard extends StatelessWidget {
   final Sneaker sneaker;
@@ -8,6 +11,30 @@ class SneakerCard extends StatelessWidget {
     super.key,
     required this.sneaker,
   });
+
+  void addToCart(BuildContext context) {
+    context.read<CartProvider>().addToCart(sneaker);
+
+    // show snackbar
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        content: Text(
+          '${sneaker.name} added to cart',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              color: Colors.grey.shade900,
+              fontSize: 16,
+              fontWeight: FontWeight.w500),
+        ),
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        duration: Duration(seconds: 1),
+        backgroundColor: Colors.white70,
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +94,7 @@ class SneakerCard extends StatelessWidget {
                 width: 50,
                 height: 50,
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () => addToCart(context),
                   icon: Icon(Icons.add),
                   style: ElevatedButton.styleFrom(
                     shape: const RoundedRectangleBorder(
