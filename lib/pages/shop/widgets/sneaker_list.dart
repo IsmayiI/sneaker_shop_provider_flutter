@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sneaker_shop_provider_flutter/models/models.dart';
 
 import 'widgets.dart';
 
@@ -14,7 +15,13 @@ class SneakerList extends StatelessWidget {
 
       // sneaker cards
       itemBuilder: (BuildContext context, int index) {
-        return SneakerCard();
+        final sneaker = Sneaker(
+          name: 'Ja 2',
+          price: '84.97',
+          image: 'images/ja.jpg',
+          type: 'Basketball Shoes',
+        );
+        return SneakerCard(sneaker: sneaker);
       },
 
       // gap between sneaker cards

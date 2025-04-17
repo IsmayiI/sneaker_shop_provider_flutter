@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:sneaker_shop_provider_flutter/models/models.dart';
 
 class SneakerCard extends StatelessWidget {
-  const SneakerCard({super.key});
+  final Sneaker sneaker;
+
+  const SneakerCard({
+    super.key,
+    required this.sneaker,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +23,12 @@ class SneakerCard extends StatelessWidget {
         children: [
           // sneaker image
           Image.asset(
-            "images/ja.jpg",
+            sneaker.image,
           ),
 
           // type
           Text(
-            'Cool shoe',
+            sneaker.type,
             style: TextStyle(
                 color: Colors.grey.shade600, fontWeight: FontWeight.w500),
           ),
@@ -38,14 +44,14 @@ class SneakerCard extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Ja 2',
+                      sneaker.name,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                       ),
                     ),
                     Text(
-                      '\$84.97',
+                      '\$${sneaker.price}',
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 16,
