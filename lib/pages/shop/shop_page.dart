@@ -7,16 +7,31 @@ class ShopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text('Hot Sneakers'),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // search bar
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
+            child: MySearchBar(),
+          ),
 
-        // sneaker list
-        SizedBox(
-          height: 500,
-          child: SneakerList(),
-        ),
-      ],
+          // hot picks
+          const Padding(
+            padding: EdgeInsets.only(left: 20),
+            child: MyLabel(),
+          ),
+
+          SizedBox(height: 14),
+
+          // sneaker list
+          SizedBox(
+            height: 500,
+            child: SneakerList(),
+          ),
+        ],
+      ),
     );
   }
 }
