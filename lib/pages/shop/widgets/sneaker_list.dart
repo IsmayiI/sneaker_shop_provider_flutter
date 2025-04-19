@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sneaker_shop_provider_flutter/models/models.dart';
+import 'package:provider/provider.dart';
+
+import 'package:sneaker_shop_provider_flutter/provider/provider.dart';
 
 import 'widgets.dart';
 
@@ -8,20 +10,17 @@ class SneakerList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sneakers = context.read<CartProvider>().sneakers;
+
     return ListView.separated(
-      itemCount: 4,
+      itemCount: sneakers.length,
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.symmetric(horizontal: 20),
 
       // sneaker cards
       itemBuilder: (BuildContext context, int index) {
-        final sneaker = Sneaker(
-          name: 'Ja 2',
-          price: '84.97',
-          image: 'images/ja.jpg',
-          type: 'Basketball Shoes',
-        );
-        return SneakerCard(sneaker: sneaker);
+        final sneaker = sneakers[index];
+        return SneakerCard(sneaker);
       },
 
       // gap between sneaker cards

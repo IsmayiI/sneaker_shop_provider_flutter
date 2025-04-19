@@ -2,38 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:sneaker_shop_provider_flutter/models/models.dart';
+import 'package:sneaker_shop_provider_flutter/pages/shop/utils/utils.dart';
 import 'package:sneaker_shop_provider_flutter/provider/provider.dart';
 
 class SneakerCard extends StatelessWidget {
   final Sneaker sneaker;
 
-  const SneakerCard({
-    super.key,
-    required this.sneaker,
-  });
+  const SneakerCard(this.sneaker, {super.key});
 
   void addToCart(BuildContext context) {
+    // check if sneaker is already in cart
+    if (isInCart(context)) return;
+
+    // add sneaker to cart
     context.read<CartProvider>().addToCart(sneaker);
+  }
+
+  bool isInCart(BuildContext context) {
+    final isInCart = context.read<CartProvider>().isInCart(sneaker);
 
     // show snackbar
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        margin: EdgeInsets.symmetric(horizontal: 20),
-        content: Text(
-          '${sneaker.name} added to cart',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              color: Colors.grey.shade900,
-              fontSize: 16,
-              fontWeight: FontWeight.w500),
-        ),
-        elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        duration: Duration(seconds: 1),
-        backgroundColor: Colors.white70,
-        behavior: SnackBarBehavior.floating,
-      ),
-    );
+    if (isInCart) {
+      ScaffoldMessenger.of(context).showSnackBar(buildSnackBar(sneaker, true));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(buildSnackBar(sneaker, false));
+    }
+
+    return isInCart;
   }
 
   @override
@@ -62,30 +57,35 @@ class SneakerCard extends StatelessWidget {
 
           // info
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               // name & price
-              Padding(
-                padding: const EdgeInsets.only(left: 20, bottom: 10),
-                child: Column(
-                  children: [
-                    Text(
-                      sneaker.name,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
+              Expanded(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 20, bottom: 10, right: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        sneaker.name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
                       ),
-                    ),
-                    Text(
-                      '\$${sneaker.price}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
-                        color: Colors.grey.shade600,
+                      Text(
+                        '\$${sneaker.price}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Colors.grey.shade600,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
 

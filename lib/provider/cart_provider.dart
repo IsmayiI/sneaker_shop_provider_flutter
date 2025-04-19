@@ -3,7 +3,7 @@ import 'package:sneaker_shop_provider_flutter/models/models.dart';
 
 class CartProvider extends ChangeNotifier {
   // sneaker list
-  final _sneakers = <Sneaker>[
+  final _sneakers = const <Sneaker>[
     Sneaker(
       name: 'Nike Shox R4',
       price: '150',
@@ -48,4 +48,6 @@ class CartProvider extends ChangeNotifier {
     _cart.remove(sneaker);
     notifyListeners();
   }
+
+  bool isInCart(Sneaker sneaker) => _cart.contains(sneaker);
 }
