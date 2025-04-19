@@ -49,5 +49,6 @@ class CartProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  // check if sneaker is in cart
   bool isInCart(Sneaker sneaker) => _cart.contains(sneaker);
 }

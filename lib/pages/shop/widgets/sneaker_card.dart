@@ -1,35 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
 import 'package:sneaker_shop_provider_flutter/models/models.dart';
 import 'package:sneaker_shop_provider_flutter/pages/shop/utils/utils.dart';
-import 'package:sneaker_shop_provider_flutter/provider/provider.dart';
 
 class SneakerCard extends StatelessWidget {
   final Sneaker sneaker;
 
   const SneakerCard(this.sneaker, {super.key});
-
-  void addToCart(BuildContext context) {
-    // check if sneaker is already in cart
-    if (isInCart(context)) return;
-
-    // add sneaker to cart
-    context.read<CartProvider>().addToCart(sneaker);
-  }
-
-  bool isInCart(BuildContext context) {
-    final isInCart = context.read<CartProvider>().isInCart(sneaker);
-
-    // show snackbar
-    if (isInCart) {
-      ScaffoldMessenger.of(context).showSnackBar(buildSnackBar(sneaker, true));
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(buildSnackBar(sneaker, false));
-    }
-
-    return isInCart;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +70,7 @@ class SneakerCard extends StatelessWidget {
                 width: 50,
                 height: 50,
                 child: IconButton(
-                  onPressed: () => addToCart(context),
+                  onPressed: () => addToCart(context, sneaker),
                   icon: Icon(Icons.add),
                   style: ElevatedButton.styleFrom(
                     shape: const RoundedRectangleBorder(

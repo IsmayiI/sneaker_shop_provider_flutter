@@ -31,7 +31,7 @@ class MainApp extends StatelessWidget {
           '/': (_) => IntroPage(),
           '/home': (_) => HomePage(),
         },
-        initialRoute: '/home',
+        initialRoute: '/',
       ),
     );
   }
