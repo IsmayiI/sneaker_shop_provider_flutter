@@ -5,12 +5,10 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(
-      opacity: 0.85,
-      child: Image.asset(
-        'images/logo.png',
-        width: 300,
-      ),
+    return Image.asset(
+      'images/logo.png',
+      width: 300,
+      color: Colors.grey.shade900,
     );
   }
 }

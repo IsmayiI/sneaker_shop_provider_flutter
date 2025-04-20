@@ -7,12 +7,12 @@ class IntroSubtext extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       'Brand new sneakers and custom kicks made with premium quality',
+      textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: 15,
         fontWeight: FontWeight.bold,
         color: Colors.grey.shade600,
       ),
-      textAlign: TextAlign.center,
     );
   }
 }

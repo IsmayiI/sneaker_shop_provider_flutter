@@ -7,33 +7,32 @@ class IntroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SizedBox(
-          width: double.infinity,
-          child: Padding(
-            padding: const EdgeInsets.all(25),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Logo
-                Logo(),
-                SizedBox(height: 85),
+    return const Scaffold(
+      body: Padding(
+        // padding horizontal
+        padding: EdgeInsets.symmetric(horizontal: 25),
 
-                // text
-                IntroText(),
-                SizedBox(height: 30),
+        child: Column(
+          // vertical center & horizontal center (default)
+          mainAxisAlignment: MainAxisAlignment.center,
 
-                // subtext
-                IntroSubtext(),
-                SizedBox(height: 30),
+          // content
+          children: [
+            // Logo
+            Logo(),
+            SizedBox(height: 85),
 
-                // button
-                IntroButton(),
-              ],
-            ),
-          ),
+            // text
+            IntroText(),
+            SizedBox(height: 30),
+
+            // subtext
+            IntroSubtext(),
+            SizedBox(height: 30),
+
+            // button
+            IntroButton(),
+          ],
         ),
       ),
     );

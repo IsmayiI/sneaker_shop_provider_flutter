@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'navigation/navigation.dart';
 import 'provider/provider.dart';
+import 'theme/theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -17,16 +18,7 @@ class MainApp extends StatelessWidget {
       create: (_) => CartProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          listTileTheme: ListTileThemeData(
-              iconColor: Colors.grey.shade900,
-              textColor: Colors.grey.shade900,
-              titleTextStyle: TextStyle(fontWeight: FontWeight.bold)),
-          appBarTheme: AppBarTheme(
-            backgroundColor: Colors.grey.shade300,
-          ),
-          scaffoldBackgroundColor: Colors.grey.shade300,
-        ),
+        theme: theme,
         routes: Navigation.routes,
         initialRoute: Navigation.initialRoute,
       ),

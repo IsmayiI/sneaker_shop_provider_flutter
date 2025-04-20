@@ -6,11 +6,14 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.grey.shade300,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        // Drawer padding
+        padding: const EdgeInsets.fromLTRB(8, 8, 8, 30),
+
+        // Drawer content
         child: Column(
           children: [
+            // Logo
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
               child: Image.asset(
@@ -18,20 +21,27 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.grey.shade900,
               ),
             ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home'),
+
+            // Home
+            const ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
             ),
-            ListTile(
-              leading: const Icon(Icons.info),
-              title: const Text('About'),
+
+            // About
+            const ListTile(
+              leading: Icon(Icons.info),
+              title: Text('About'),
             ),
-            Spacer(),
-            ListTile(
-              leading: const Icon(Icons.logout_outlined),
-              title: const Text('Logout'),
+
+            // Spacer to push the logout button to the bottom
+            const Spacer(),
+
+            // Logout
+            const ListTile(
+              leading: Icon(Icons.logout_outlined),
+              title: Text('Logout'),
             ),
-            SizedBox(height: 20),
           ],
         ),
       ),

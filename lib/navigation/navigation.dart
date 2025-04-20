@@ -4,10 +4,15 @@ import 'package:sneaker_shop_provider_flutter/pages/pages.dart';
 import 'route_names.dart';
 
 abstract class Navigation {
-  static String initialRoute = RouteNames.intro;
+  // initial route
+  static const String initialRoute = RouteNames.intro;
 
+  // routes
   static final routes = <String, Widget Function(BuildContext)>{
-    RouteNames.intro: (_) => IntroPage(),
-    RouteNames.home: (_) => HomePage(),
+    // intro page
+    RouteNames.intro: (_) => const IntroPage(),
+
+    // home page
+    RouteNames.home: (_) => const HomePage(),
   };
 }
