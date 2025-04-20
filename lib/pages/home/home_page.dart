@@ -1,32 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sneaker_shop_provider_flutter/components/components.dart';
-import 'package:sneaker_shop_provider_flutter/pages/pages.dart';
+import 'package:sneaker_shop_provider_flutter/provider/provider.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  // tabs logic
-  int selectedIndex = 0;
-  void onTabChange(int index) => setState(() => selectedIndex = index);
-
-  // pages logic
-  final pages = const <Widget>[
-    ShopPage(),
-    CartPage(),
-  ];
-
-  @override
   Widget build(BuildContext context) {
+    final page = context.watch<NavbarProvider>().page;
+
     return Scaffold(
       appBar: AppBar(),
-      drawer: MyDrawer(),
-      bottomNavigationBar: MyNavbar(onTabChange: onTabChange),
-      body: pages[selectedIndex],
+      drawer: const MyDrawer(),
+      bottomNavigationBar: const MyNavbar(),
+      body: page,
     );
   }
 }
