@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'pages/pages.dart';
+import 'navigation/navigation.dart';
 import 'provider/provider.dart';
 
 void main() {
@@ -27,11 +27,8 @@ class MainApp extends StatelessWidget {
           ),
           scaffoldBackgroundColor: Colors.grey.shade300,
         ),
-        routes: {
-          '/': (_) => IntroPage(),
-          '/home': (_) => HomePage(),
-        },
-        initialRoute: '/',
+        routes: Navigation.routes,
+        initialRoute: Navigation.initialRoute,
       ),
     );
   }
