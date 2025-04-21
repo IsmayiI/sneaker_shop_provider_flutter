@@ -21,26 +21,16 @@ class SneakerTile extends StatelessWidget {
         child: Image.asset(sneaker.image),
       ),
 
-      // name & price
+      // name
       title: Text(sneaker.name),
-      subtitle: Text(
-        '\$${sneaker.price}',
-        style: const TextStyle(
-          fontWeight: FontWeight.w500,
-          color: Colors.grey,
-        ),
-      ),
+
+      // price
+      subtitle: Text('\$${sneaker.price}'),
 
       // delete
       trailing: IconButton(
         onPressed: () => onDelete(context),
         icon: const Icon(Icons.delete, color: Colors.grey),
-      ),
-
-      // tile style
-      tileColor: Colors.white70,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
       ),
     );
   }
