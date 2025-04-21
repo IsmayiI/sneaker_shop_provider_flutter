@@ -7,6 +7,8 @@ class MySearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SearchBar(
       enabled: false,
+
+      // trailing
       trailing: [
         IconButton(
           onPressed: () {},
@@ -15,22 +17,31 @@ class MySearchBar extends StatelessWidget {
             color: Colors.grey.shade500,
           ),
         ),
-        SizedBox(width: 10)
+        // right padding
+        const SizedBox(width: 10)
       ],
+
+      // hint
+      hintText: 'Search',
       hintStyle: WidgetStatePropertyAll(
         TextStyle(color: Colors.grey.shade500),
       ),
-      hintText: 'Search',
+
+      // text
       textStyle: WidgetStatePropertyAll(
         TextStyle(color: Colors.grey.shade900),
       ),
+
+      // radius
       shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
       ),
-      backgroundColor: WidgetStatePropertyAll(Colors.white70),
-      shadowColor: WidgetStatePropertyAll(Colors.transparent),
+
+      // color
+      backgroundColor: const WidgetStatePropertyAll(Colors.white70),
+      shadowColor: const WidgetStatePropertyAll(Colors.transparent),
     );
   }
 }

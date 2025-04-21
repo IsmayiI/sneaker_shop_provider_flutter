@@ -8,14 +8,7 @@ SnackBar buildSnackBar(Sneaker sneaker, bool isInCart) {
     margin: const EdgeInsets.symmetric(horizontal: 20),
     content: Column(
       children: [
-        Text(
-          sneaker.name,
-          style: TextStyle(
-            color: Colors.grey.shade900,
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
+        _SneakerName(sneaker.name),
         Text(
           text,
           style: TextStyle(
@@ -32,4 +25,22 @@ SnackBar buildSnackBar(Sneaker sneaker, bool isInCart) {
     backgroundColor: Colors.white70,
     behavior: SnackBarBehavior.floating,
   );
+}
+
+class _SneakerName extends StatelessWidget {
+  final String name;
+
+  const _SneakerName(this.name);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      name,
+      style: TextStyle(
+        color: Colors.grey.shade900,
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+      ),
+    );
+  }
 }

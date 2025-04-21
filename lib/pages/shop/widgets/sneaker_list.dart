@@ -15,7 +15,7 @@ class SneakerList extends StatelessWidget {
     return ListView.separated(
       itemCount: sneakers.length,
       scrollDirection: Axis.horizontal,
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
 
       // sneaker cards
       itemBuilder: (BuildContext context, int index) {
@@ -25,7 +25,7 @@ class SneakerList extends StatelessWidget {
 
       // gap between sneaker cards
       separatorBuilder: (BuildContext context, int index) {
-        return SizedBox(width: 20);
+        return const SizedBox(width: 20);
       },
     );
   }

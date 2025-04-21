@@ -7,23 +7,21 @@ class ShopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // search bar
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 40),
             child: MySearchBar(),
           ),
 
           // hot picks
-          const Padding(
-            padding: EdgeInsets.only(left: 20),
+          Padding(
+            padding: EdgeInsets.only(left: 20, bottom: 14),
             child: MyLabel(),
           ),
-
-          SizedBox(height: 14),
 
           // sneaker list
           SizedBox(
