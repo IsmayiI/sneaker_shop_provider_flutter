@@ -26,12 +26,14 @@ class MyDrawer extends StatelessWidget {
             const ListTile(
               leading: Icon(Icons.home),
               title: Text('Home'),
+              tileColor: Colors.transparent,
             ),
 
             // About
             const ListTile(
               leading: Icon(Icons.info),
               title: Text('About'),
+              tileColor: Colors.transparent,
             ),
 
             // Spacer to push the logout button to the bottom
@@ -41,6 +43,7 @@ class MyDrawer extends StatelessWidget {
             const ListTile(
               leading: Icon(Icons.logout_outlined),
               title: Text('Logout'),
+              tileColor: Colors.transparent,
             ),
           ],
         ),
