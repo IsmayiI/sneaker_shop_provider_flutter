@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sneaker_shop_provider_flutter/models/models.dart';
 import 'package:sneaker_shop_provider_flutter/provider/provider.dart';
 
-class SneakerTile extends StatelessWidget {
+class SneakerTile extends ConsumerWidget {
   final Sneaker sneaker;
   const SneakerTile(this.sneaker, {super.key});
 
   // delete sneaker from cart
-  void onDelete(BuildContext context) {
-    context.read<CartProvider>().removeFromCart(sneaker);
+  void onDelete(BuildContext context, WidgetRef ref) {
+    ref.read(cartProvider.notifier).removeFromCart(sneaker);
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ListTile(
       // image
       leading: Padding(
@@ -29,7 +29,7 @@ class SneakerTile extends StatelessWidget {
 
       // delete
       trailing: IconButton(
-        onPressed: () => onDelete(context),
+        onPressed: () => onDelete(context, ref),
         icon: const Icon(Icons.delete, color: Colors.grey),
       ),
     );

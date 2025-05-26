@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sneaker_shop_provider_flutter/provider/provider.dart';
 
 import 'widgets/widgets.dart';
 
-class CartPage extends StatelessWidget {
+class CartPage extends ConsumerWidget {
   const CartPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final cart = context.watch<CartProvider>().cart;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final cart = ref.watch(cartProvider).cart;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),

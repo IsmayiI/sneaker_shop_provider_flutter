@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sneaker_shop_provider_flutter/models/models.dart';
 import 'package:sneaker_shop_provider_flutter/pages/shop/utils/utils.dart';
 
@@ -65,15 +66,15 @@ class SneakerCard extends StatelessWidget {
   }
 }
 
-class _AddButton extends StatelessWidget {
+class _AddButton extends ConsumerWidget {
   final Sneaker sneaker;
 
   const _AddButton(this.sneaker);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return IconButton(
-      onPressed: () => addToCart(context, sneaker),
+      onPressed: () => addToCart(context, sneaker, ref),
       icon: const Icon(Icons.add),
 
       // style

@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:provider/provider.dart';
 import 'package:sneaker_shop_provider_flutter/provider/provider.dart';
 
-class MyNavbar extends StatelessWidget {
+class MyNavbar extends ConsumerWidget {
   const MyNavbar({super.key});
 
-  // change page
-  void onTabChange(BuildContext context, int index) {
-    context.read<NavbarProvider>().onTabChange(index);
-  }
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       // navbar vertical padding
       padding: const EdgeInsets.symmetric(vertical: 20),
@@ -44,7 +39,8 @@ class MyNavbar extends StatelessWidget {
         ],
 
         // on tab change
-        onTabChange: (index) => onTabChange(context, index),
+        onTabChange: (index) =>
+            ref.read(selectedIndexProvider.notifier).state = index,
       ),
     );
   }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import 'package:sneaker_shop_provider_flutter/provider/provider.dart';
+import 'package:sneaker_shop_provider_flutter/data/sneakers.dart';
 
 import 'widgets.dart';
 
@@ -10,8 +8,6 @@ class SneakerList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sneakers = context.read<CartProvider>().sneakers;
-
     return ListView.separated(
       itemCount: sneakers.length,
       scrollDirection: Axis.horizontal,

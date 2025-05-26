@@ -1,4 +1,6 @@
-class Sneaker {
+import 'package:equatable/equatable.dart';
+
+class Sneaker extends Equatable {
   final String name;
   final String price;
   final String image;
@@ -10,4 +12,7 @@ class Sneaker {
     required this.image,
     required this.type,
   });
+
+  @override
+  List<Object> get props => [name, price, image, type];
 }
